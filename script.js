@@ -45,7 +45,7 @@ const displaySection = (data) => {
     div.classList.add('section-item')
     div.textContent = thing.name || thing.title
 
-    div.sectionURL = thing.url
+    div.itemURL = thing.url
     div.addEventListener('click', displayItem)
 
     mainContainer.append(div)
@@ -53,6 +53,14 @@ const displaySection = (data) => {
   })
 }
 
-const displayItem = () => {
-  console.log('hello item!')
+const displayItem = (e) => {
+  const item = e.target
+  console.log(item.itemURL)
+  fetch(item.itemURL)
+    .then((res) => res.json())
+    .then((itemData) => console.log(itemData))
+    .catch((err) => {
+      mainContainer.innerHTML = 'Error... '
+      console.log(err)
+    })
 }
