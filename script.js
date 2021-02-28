@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   fetch(baseURL)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)
+      // console.log(data)
       for (const section in data) {
         // console.log(`${section} : ${data[section]}`)
         const sectionBtn = document.createElement('button')
@@ -31,5 +31,28 @@ const getContent = (e) => {
 const getJSON = (url) => {
   fetch(url)
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      // console.log(data)
+      displaySection(data)
+    })
+}
+
+const displaySection = (data) => {
+  console.log(data)
+  mainContainer.innerHTML = ''
+  data.results.forEach((thing) => {
+    const div = document.createElement('div')
+    div.classList.add('section-item')
+    div.textContent = thing.name || thing.title
+
+    div.sectionURL = thing.url
+    div.addEventListener('click', displayItem)
+
+    mainContainer.append(div)
+    console.log(thing.name)
+  })
+}
+
+const displayItem = () => {
+  console.log('hello item!')
 }
