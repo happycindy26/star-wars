@@ -56,9 +56,19 @@ const displaySection = (data) => {
 const displayItem = (e) => {
   const item = e.target
   console.log(item.itemURL)
+  mainContainer.innerHTML = ''
   fetch(item.itemURL)
     .then((res) => res.json())
-    .then((itemData) => console.log(itemData))
+    .then((itemData) => {
+      // console.log(itemData)
+      for (const property in itemData) {
+        console.log(`${property}: ${itemData[property]}`)
+        console.log(typeof itemData[property])
+
+        let html = typeof itemData[property] == 'string' ? itemData[property] : JSON.stringify(itemData[property])
+        mainContainer.innerHTML += `<div class="${property}"><span class="label">${property}:</span> ${html}</div>`
+      }
+    })
     .catch((err) => {
       mainContainer.innerHTML = 'Error... '
       console.log(err)
