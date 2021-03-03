@@ -1,0 +1,22 @@
+{
+  "name": "star-wars",
+  "version": "1.0.0",
+  "description": "A portfolio piece in progress.",
+  "main": "script.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happycindy26/star-wars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/happycindy26/star-wars/issues"
+  },
+  "homepage": "https://github.com/happycindy26/star-wars#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 const h1 = document.querySelector('h1')
-const siteNav = document.querySelector('.site-nav')
-const mainContainer = document.querySelector('.main-container')
+const siteNav = document.querySelector('.site__nav')
+const mainContainer = document.querySelector('.main__container')
 
 const baseURL = 'https://swapi.dev/api/'
 
@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
       for (const section in data) {
         // console.log(`${section} : ${data[section]}`)
         const sectionBtn = document.createElement('button')
-        sectionBtn.classList.add('section-button')
+        sectionBtn.classList.add('site__nav-button')
         sectionBtn.textContent = `${section}`
         siteNav.append(sectionBtn)
         sectionBtn.sectionURL = data[section]
@@ -42,7 +42,7 @@ const displaySection = (data) => {
   mainContainer.innerHTML = ''
   data.results.forEach((thing) => {
     const div = document.createElement('div')
-    div.classList.add('section-item')
+    div.classList.add('main__container-item')
     div.textContent = thing.name || thing.title
 
     div.itemURL = thing.url

@@ -1,0 +1,12 @@
+.site {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV93G4v1rz5nwIf0v6_nsQNN3w8KhoEffMzw&usqp=CAU");
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &__logo {
+        height: 2rem;
+        padding-left: 2rem;
+    }
+}
