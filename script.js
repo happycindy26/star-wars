@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
   fetch(baseURL)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data)
       for (const section in data) {
         // console.log(`${section} : ${data[section]}`)
         const sectionBtn = document.createElement('button')
@@ -22,7 +21,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
 })
 
 const getContent = (e) => {
-  // console.log(e.target)
   const btn = e.target
   // console.log(btn.sectionURL)
   getJSON(btn.sectionURL)
@@ -49,21 +47,21 @@ const displaySection = (data) => {
     div.addEventListener('click', displayItem)
 
     mainContainer.append(div)
-    console.log(thing.name)
+    //console.log(thing.name)
   })
 }
 
 const displayItem = (e) => {
   const item = e.target
-  console.log(item.itemURL)
+  //console.log(item.itemURL)
   mainContainer.innerHTML = ''
   fetch(item.itemURL)
     .then((res) => res.json())
     .then((itemData) => {
       // console.log(itemData)
       for (const property in itemData) {
-        console.log(`${property}: ${itemData[property]}`)
-        console.log(typeof itemData[property])
+        //console.log(`${property}: ${itemData[property]}`)
+        //console.log(typeof itemData[property])
 
         let html = typeof itemData[property] == 'string' ? itemData[property] : JSON.stringify(itemData[property])
         mainContainer.innerHTML += `<div class="${property}"><span class="label">${property}:</span> ${html}</div>`

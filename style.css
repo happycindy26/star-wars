@@ -42,18 +42,19 @@ body {
     box-shadow: 0 .5rem 1rem lightskyblue; }
 
 .site {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV93G4v1rz5nwIf0v6_nsQNN3w8KhoEffMzw&usqp=CAU");
+  background-image: url("../../img/headerImg.jpeg");
   background-size: cover;
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  padding: 0 2rem; }
   .site__logo {
-    height: 2rem;
-    padding-left: 2rem; }
+    background: transparent;
+    height: 2rem; }
 
 .main {
   height: 120vh;
-  background-image: linear-gradient(to right bottom, rgba(8, 2, 36, 0.8), rgba(105, 178, 247, 0.8)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSff_SzUWZVrI08XqlKICOHeAEFct7LoCDRzA&usqp=CAU");
+  background-image: linear-gradient(to right bottom, rgba(8, 2, 36, 0.8), rgba(105, 178, 247, 0.8)), url("../../img/homeImg.jpeg");
   background-size: cover; }
   .main__title {
     font-family: Codystar;

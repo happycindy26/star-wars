@@ -1,13 +1,12 @@
 .main {
     height: 120vh;
     background-image: linear-gradient(to right bottom, rgba($color-primary-1, 0.8), rgba($color-primary-2, 0.8)),
-    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSff_SzUWZVrI08XqlKICOHeAEFct7LoCDRzA&usqp=CAU");
+    url("../../img/homeImg.jpeg");
     background-size: cover;
     
     &__title {
         font-family: Codystar;
         text-align: center;
-        
         padding: 3rem;
         color: $color-secondary-1;
         letter-spacing: 1rem;
