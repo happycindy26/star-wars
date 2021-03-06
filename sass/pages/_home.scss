@@ -1,0 +1,28 @@
+.main {
+    height: 120vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-1, 0.8), rgba($color-primary-2, 0.8)),
+    url("../../img/homeImg.jpeg");
+    background-size: cover;
+    
+    &__title {
+        font-family: Codystar;
+        text-align: center;
+        padding: 3rem;
+        color: $color-secondary-1;
+        letter-spacing: 1rem;
+        animation: rotate 2s ease-out;
+    }
+    &__container {
+        color: white;
+        line-height: 1.5rem;
+        margin: 0 3rem;
+        
+        &-item {
+            animation: moveInLeft 1s ease-out;
+        }
+        &:hover {
+            cursor: pointer;
+            color: $color-secondary-2;
+        }
+    }
+}
