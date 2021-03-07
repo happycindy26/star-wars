@@ -30,7 +30,7 @@ const getJSON = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data)
+      console.log(data)
       displaySection(data)
     })
 }
@@ -49,6 +49,34 @@ const displaySection = (data) => {
     mainContainer.append(div)
     //console.log(thing.name)
   })
+
+  // Handle Section Pagination
+  const paginationContainer = document.createElement('div')
+  mainContainer.append(paginationContainer)
+
+  if (data.previous) {
+    const previousPageBtn = document.createElement('button')
+    previousPageBtn.textContent = 'Previous'
+    paginationContainer.append(previousPageBtn)
+    previousPageBtn.sectionURL = data.previous
+    // previousPageBtn.addEventListener('click', getJSON)
+    previousPageBtn.addEventListener('click', (e) => {
+      // console.log(data.previous)
+      getJSON(data.previous)
+    })
+  }
+
+  if (data.next) {
+    const nextPageBtn = document.createElement('button')
+    nextPageBtn.textContent = 'Next'
+    paginationContainer.append(nextPageBtn)
+    nextPageBtn.sectionURL = data.next
+    // nextPageBtn.addEventListener('click', getJSON)
+    nextPageBtn.addEventListener('click', (e) => {
+      // console.log(data.next)
+      getJSON(data.next)
+    })
+  }
 }
 
 const displayItem = (e) => {
