@@ -41,6 +41,12 @@ body {
     background-color: #080224;
     box-shadow: 0 .5rem 1rem lightskyblue; }
 
+.pagination__container {
+  background-color: #080224; }
+
+.pagination__btn {
+  background-color: gold; }
+
 .site {
   background-image: url("../../img/headerImg.jpeg");
   background-size: cover;
@@ -69,6 +75,6 @@ body {
     margin: 0 3rem; }
     .main__container-item {
       animation: moveInLeft 1s ease-out; }
-    .main__container:hover {
-      cursor: pointer;
-      color: #fab028; }
+      .main__container-item:hover {
+        cursor: pointer;
+        color: #fab028; }

@@ -4,6 +4,8 @@ const mainContainer = document.querySelector('.main__container')
 
 const baseURL = 'https://swapi.dev/api/'
 
+let currentEndPoint = ''
+
 window.addEventListener('DOMContentLoaded', (e) => {
   fetch(baseURL)
     .then((res) => res.json())
@@ -27,6 +29,7 @@ const getContent = (e) => {
 }
 
 const getJSON = (url) => {
+  currentEndPoint = url
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -37,7 +40,7 @@ const getJSON = (url) => {
 
 const displaySection = (data) => {
   console.log(data)
-  mainContainer.innerHTML = ''
+  mainContainer.innerHTML = currentEndPoint
   data.results.forEach((thing) => {
     const div = document.createElement('div')
     div.classList.add('main__container-item')
@@ -52,6 +55,7 @@ const displaySection = (data) => {
 
   // Handle Section Pagination
   const paginationContainer = document.createElement('div')
+  paginationContainer.classList.add('pagination__container')
   mainContainer.append(paginationContainer)
 
   if (data.previous) {
@@ -75,6 +79,25 @@ const displaySection = (data) => {
     nextPageBtn.addEventListener('click', (e) => {
       // console.log(data.next)
       getJSON(data.next)
+    })
+  }
+
+  // Get page number buttons
+  const total = Math.ceil(data.count / 10)
+
+  for (let i = 0; i < total; i++) {
+    const numberedPageBtn = document.createElement('button')
+    numberedPageBtn.classList.add('pagination__btn')
+    numberedPageBtn.textContent = i + 1
+    paginationContainer.append(numberedPageBtn)
+    // numberedPageBtn.addEventListener('click', getJSON)
+    let cleanURL = currentEndPoint.split('?')
+    let numberedPageBtnURL = `${cleanURL[0]}?page=${i + 1}`
+    numberedPageBtn.sectionURL = numberedPageBtnURL
+    console.log(cleanURL)
+    numberedPageBtn.addEventListener('click', (e) => {
+      console.log(numberedPageBtnURL)
+      getJSON(numberedPageBtnURL)
     })
   }
 }
